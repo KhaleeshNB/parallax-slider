@@ -12,11 +12,16 @@ class _ParallaxEffectState extends State<ParallaxEffect> {
   double pageOffSet = 0;
 
   List<String> images = [
-    "assets/bat.jpg",
+    "assets/jw.jpg",
+    "assets/orange_clock.jpg",
+    "assets/2001.jpg",
+    "assets/drive.jpg",
+    "assets/leon.jpg",
+    "assets/akira.jpg",
     "assets/fc.jpg",
-    "assets/pf.jpg",
     "assets/pshyco.jpg",
-    "assets/jw.jpg"
+    "assets/pf.jpg",
+    "assets/bat.jpg",
   ];
 
   @override
@@ -44,7 +49,7 @@ class _ParallaxEffectState extends State<ParallaxEffect> {
         itemCount: images.length,
         itemBuilder: (context, index) {
           double scale =
-              (1 - ((pageOffSet - index).abs() * 0.9)).clamp(0.8, 1.0);
+              (1 - ((pageOffSet - index).abs() * 0.1)).clamp(0.9, 1.0);
 
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 80),
@@ -53,13 +58,12 @@ class _ParallaxEffectState extends State<ParallaxEffect> {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(30),
                 child: SizedBox(
-                  height: 400,
                   width: double.infinity,
                   child: Image.asset(
                     width: double.infinity,
                     images[index],
                     fit: BoxFit.fitHeight,
-                    alignment: Alignment((index - pageOffSet) * 5.5, 0),
+                    alignment: Alignment((index - pageOffSet) * 8, 0),
                   ),
                 ),
               ),
